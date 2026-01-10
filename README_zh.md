@@ -177,6 +177,40 @@ npm install -g @musistudio/claude-code-router
 }
 ```
 
+这是一个最简本地使用(lmstudio) 示例：
+本地部署的朋友,请不要在意那个看不懂的 transformer. 直接用:
+
+```json
+{
+  "HOST": "127.0.0.1",
+  "PORT": 3456,
+  "LOG": true,
+  "API_TIMEOUT_MS": 600000,
+  "Providers": [
+    {
+      "name": "lmstudio",
+      "api_base_url": "http://127.0.0.1:1234/v1/chat/completions",
+      "api_key": "lm-studio",
+      "models": [
+        "openai/gpt-oss-20b",
+        "qwen/qwen3-4b"
+      ]
+    }
+  ],
+  "Router": {
+    "default": "lmstudio,openai/gpt-oss-20b",
+    "background": "lmstudio,qwen/qwen3-4b",
+    "think": "lmstudio,openai/gpt-oss-20b",
+    "longContext": "lmstudio,openai/gpt-oss-20b",
+    "longContextThreshold": 60000,
+    "webSearch": "lmstudio,openai/gpt-oss-20b"
+  }
+}
+```
+
+
+
+
 
 ### 3. 使用 Router 运行 Claude Code
 
